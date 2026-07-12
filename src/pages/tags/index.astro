@@ -1,0 +1,27 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+const posts = await getCollection('posts', ({ data }) => !data.draft);
+const counts = new Map();
+for (const post of posts) {
+  for (const tag of post.data.tags) {
+    counts.set(tag, (counts.get(tag) ?? 0) + 1);
+  }
+}
+const tags = [...counts.entries()].sort((a, b) => b[1] - a[1]);
+---
+
+<Base title="Tags">
+  <section class="hero">
+    <h1>Tags</h1>
+    <p>Todos los temas del blog.</p>
+  </section>
+  <p>
+    {tags.map(([tag, count]) => (
+      <a class="tag-chip" style="margin: 0 0.4rem 0.6rem 0; font-size: 0.9rem;" href={`/tags/${tag}/`}>
+        #{tag} ({count})
+      </a>
+    ))}
+  </p>
+</Base>

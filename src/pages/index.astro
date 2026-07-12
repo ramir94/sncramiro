@@ -1,0 +1,21 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import PostCard from '../components/PostCard.astro';
+import { SITE_DESCRIPTION } from '../consts.js';
+
+const posts = (await getCollection('posts', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<Base>
+  <section class="hero">
+    <h1>Notas sobre <span class="accent">ServiceNow</span></h1>
+    <p>{SITE_DESCRIPTION}</p>
+  </section>
+
+  <ul class="post-list">
+    {posts.map((post) => <PostCard post={post} />)}
+  </ul>
+</Base>

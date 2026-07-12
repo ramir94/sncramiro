@@ -1,0 +1,19 @@
+---
+const { post } = Astro.props;
+const dateFormatter = new Intl.DateTimeFormat('es-ES', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<li class="post-card">
+  <div class="post-meta">
+    <time datetime={post.data.pubDate.toISOString()}>
+      {dateFormatter.format(post.data.pubDate)}
+    </time>
+    <span class="lang-badge">{post.data.lang}</span>
+  </div>
+  <h2><a href={`/posts/${post.id}/`}>{post.data.title}</a></h2>
+  <p>{post.data.description}</p>
+</li>
