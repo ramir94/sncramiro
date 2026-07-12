@@ -1,19 +1,30 @@
 ---
-const { post } = Astro.props;
+const { post, featured = false } = Astro.props;
 const dateFormatter = new Intl.DateTimeFormat('es-ES', {
   year: 'numeric',
-  month: 'long',
+  month: 'short',
   day: 'numeric',
 });
+const words = (post.body?.trim().split(/\s+/).length) ?? 0;
+const readingMin = Math.max(1, Math.round(words / 200));
 ---
 
-<li class="post-card">
+<li class:list={['post-card', { featured }]}>
   <div class="post-meta">
     <time datetime={post.data.pubDate.toISOString()}>
       {dateFormatter.format(post.data.pubDate)}
     </time>
+    <span class="sep">·</span>
+    <span>{readingMin} min</span>
     <span class="lang-badge">{post.data.lang}</span>
   </div>
   <h2><a href={`/posts/${post.id}/`}>{post.data.title}</a></h2>
-  <p>{post.data.description}</p>
+  <p class="post-card-excerpt">{post.data.description}</p>
+  {post.data.tags.length > 0 && (
+    <div class="post-card-tags">
+      {post.data.tags.map((tag) => (
+        <a class="tag-chip" href={`/tags/${tag}/`}>#{tag}</a>
+      ))}
+    </div>
+  )}
 </li>

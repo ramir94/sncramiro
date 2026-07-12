@@ -17,20 +17,25 @@ const dateFormatter = new Intl.DateTimeFormat('es-ES', {
   month: 'long',
   day: 'numeric',
 });
+const words = post.body?.trim().split(/\s+/).length ?? 0;
+const readingMin = Math.max(1, Math.round(words / 200));
 ---
 
 <Base title={post.data.title} description={post.data.description}>
   <article class="post">
+    <a class="post-back" href="/">← Todos los artículos</a>
+    <h1>{post.data.title}</h1>
     <div class="post-meta">
       <time datetime={post.data.pubDate.toISOString()}>
         {dateFormatter.format(post.data.pubDate)}
       </time>
+      <span class="sep">·</span>
+      <span>{readingMin} min de lectura</span>
       <span class="lang-badge">{post.data.lang}</span>
       {post.data.tags.map((tag) => (
         <a class="tag-chip" href={`/tags/${tag}/`}>#{tag}</a>
       ))}
     </div>
-    <h1>{post.data.title}</h1>
     <div class="prose">
       <Content />
     </div>

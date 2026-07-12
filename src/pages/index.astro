@@ -2,7 +2,6 @@
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import PostCard from '../components/PostCard.astro';
-import { SITE_DESCRIPTION } from '../consts.js';
 
 const posts = (await getCollection('posts', ({ data }) => !data.draft)).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
@@ -11,11 +10,20 @@ const posts = (await getCollection('posts', ({ data }) => !data.draft)).sort(
 
 <Base>
   <section class="hero">
-    <h1>Notas sobre <span class="accent">ServiceNow</span></h1>
-    <p>{SITE_DESCRIPTION}</p>
+    <span class="eyebrow">Blog sobre ServiceNow</span>
+    <h1>Notas de plataforma sobre <span class="accent">ServiceNow</span></h1>
+    <p>
+      Comparativas, scripting, arquitectura y novedades de la plataforma.
+      Aprendizajes de proyecto explicados sin relleno — en español e inglés.
+    </p>
   </section>
 
+  <div class="section-head">
+    <h2>Últimos artículos</h2>
+    <a href="/tags/">Ver por temas →</a>
+  </div>
+
   <ul class="post-list">
-    {posts.map((post) => <PostCard post={post} />)}
+    {posts.map((post, i) => <PostCard post={post} featured={i === 0} />)}
   </ul>
 </Base>
