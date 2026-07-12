@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 620" width="1000" height="620" role="img" aria-label="Mockup de una home tipo Employee Center: navegar por un portal">
+  <defs>
+    <linearGradient id="ecHero" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3a4a57"/>
+      <stop offset="1" stop-color="#20303b"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1000" height="620" fill="#eef1f4"/>
+
+  <!-- top bar -->
+  <rect x="0" y="0" width="1000" height="46" fill="#1f6fbf"/>
+  <circle cx="28" cy="23" r="9" fill="#ffffff" opacity="0.9"/>
+  <text x="46" y="29" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">Acme</text>
+  <text x="770" y="29" fill="#dbe8f6" font-family="Inter, Arial, sans-serif" font-size="13">My Tasks</text>
+  <circle cx="838" cy="18" r="8" fill="#e0655f"/><text x="835" y="22" fill="#fff" font-family="Inter, Arial" font-size="10" font-weight="700">3</text>
+  <text x="856" y="29" fill="#dbe8f6" font-family="Inter, Arial, sans-serif" font-size="13">My Requests</text>
+  <circle cx="962" cy="23" r="13" fill="#ffffff" opacity="0.9"/>
+
+  <!-- sub nav -->
+  <rect x="0" y="46" width="1000" height="38" fill="#2b7fd0"/>
+  <g fill="#eaf3fd" font-family="Inter, Arial, sans-serif" font-size="13">
+    <text x="30" y="70">HR ▾</text>
+    <text x="95" y="70">IT ▾</text>
+    <text x="150" y="70">Can We Help You?</text>
+    <text x="300" y="70">Profile</text>
+  </g>
+
+  <!-- hero -->
+  <rect x="0" y="84" width="760" height="150" fill="url(#ecHero)"/>
+  <text x="40" y="140" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700">Time to set your annual goals</text>
+  <text x="40" y="168" fill="#c9d6e0" font-family="Inter, Arial, sans-serif" font-size="13">Make plans to meet with your manager and set priorities.</text>
+  <rect x="40" y="186" width="110" height="34" rx="4" fill="#1f6fbf"/>
+  <text x="66" y="208" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600">Set goals</text>
+  <!-- hero side tiles -->
+  <g font-family="Inter, Arial, sans-serif" font-size="12" fill="#ffffff">
+    <rect x="760" y="84" width="240" height="50" fill="#1f6fbf"/><text x="778" y="113">Time to set your annual goals</text>
+    <rect x="760" y="134" width="240" height="50" fill="#1b63aa"/><text x="778" y="163">What to know before traveling</text>
+    <rect x="760" y="184" width="240" height="50" fill="#1f6fbf"/><text x="778" y="213">Welcome back to the office!</text>
+  </g>
+
+  <!-- search -->
+  <text x="200" y="300" fill="#2a3b47" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">How can we help?</text>
+  <rect x="200" y="316" width="500" height="42" rx="6" fill="#ffffff" stroke="#cbd6df" stroke-width="1.5"/>
+  <text x="220" y="342" fill="#9aa9b4" font-family="Inter, Arial, sans-serif" font-size="14">Search…</text>
+  <circle cx="672" cy="337" r="9" fill="none" stroke="#7c8b96" stroke-width="2"/><path d="M679 344 l7 7" stroke="#7c8b96" stroke-width="2"/>
+
+  <!-- recommended -->
+  <text x="200" y="398" fill="#2a3b47" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">Recommended for you</text>
+  <g>
+    <rect x="200" y="410" width="155" height="150" rx="8" fill="#ffffff" stroke="#e0e6ec"/>
+    <rect x="365" y="410" width="155" height="150" rx="8" fill="#ffffff" stroke="#e0e6ec"/>
+    <rect x="530" y="410" width="155" height="150" rx="8" fill="#ffffff" stroke="#e0e6ec"/>
+  </g>
+  <g font-family="Inter, Arial, sans-serif" fill="#5a6b76" font-size="11">
+    <text x="216" y="436">Article</text>
+    <text x="381" y="436">Request</text>
+    <text x="546" y="436">Request</text>
+  </g>
+  <g font-family="Inter, Arial, sans-serif" fill="#2a3b47" font-size="12.5" font-weight="600">
+    <text x="216" y="466">Configure VPN</text>
+    <text x="216" y="484">for Apple Devices</text>
+    <text x="381" y="466">New Hire</text>
+    <text x="381" y="484">Onboarding</text>
+    <text x="546" y="466">Phone &amp;</text>
+    <text x="546" y="484">Voicemail</text>
+  </g>
+  <g fill="#dbe6ef">
+    <rect x="216" y="500" width="120" height="8" rx="4"/>
+    <rect x="381" y="500" width="120" height="8" rx="4"/>
+    <rect x="546" y="500" width="120" height="8" rx="4"/>
+  </g>
+
+  <!-- sidebar my active items -->
+  <text x="740" y="300" fill="#2a3b47" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">My active items</text>
+  <rect x="740" y="314" width="230" height="110" rx="8" fill="#ffffff" stroke="#e0e6ec"/>
+  <text x="855" y="360" fill="#1f6fbf" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="800" text-anchor="middle">9</text>
+  <text x="855" y="380" fill="#5a6b76" font-family="Inter, Arial, sans-serif" font-size="12" text-anchor="middle">Requests</text>
+  <rect x="756" y="392" width="95" height="22" rx="4" fill="#f0f4f8"/><text x="770" y="407" fill="#5a6b76" font-family="Inter, Arial" font-size="11">0 Surveys</text>
+  <rect x="860" y="392" width="95" height="22" rx="4" fill="#f0f4f8"/><text x="874" y="407" fill="#5a6b76" font-family="Inter, Arial" font-size="11">3 Tasks</text>
+
+  <text x="740" y="452" fill="#2a3b47" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">Quick requests</text>
+  <rect x="740" y="462" width="230" height="44" rx="8" fill="#ffffff" stroke="#e0e6ec"/>
+  <rect x="752" y="474" width="46" height="16" rx="3" fill="#e6f0fb"/><text x="758" y="486" fill="#1f6fbf" font-family="Inter, Arial" font-size="10">Ready</text>
+  <text x="752" y="502" fill="#2a3b47" font-family="Inter, Arial" font-size="11.5" font-weight="600">Parental Leave Request</text>
+  <rect x="740" y="514" width="230" height="44" rx="8" fill="#ffffff" stroke="#e0e6ec"/>
+  <rect x="752" y="526" width="42" height="16" rx="3" fill="#eef2f6"/><text x="758" y="538" fill="#5a6b76" font-family="Inter, Arial" font-size="10">Open</text>
+  <text x="752" y="554" fill="#2a3b47" font-family="Inter, Arial" font-size="11.5" font-weight="600">Office Desktop</text>
+</svg>

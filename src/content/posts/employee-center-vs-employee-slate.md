@@ -28,6 +28,11 @@ ServiceNow. Multi-audiencia (HR, IT, instalaciones, legal…), con taxonomía
 unificada, catálogo, base de conocimiento y una capa de personalización. Es
 maduro, muy configurable y sobre él hay miles de implementaciones en producción.
 
+<figure>
+  <img src="/images/employee-center-home.svg" alt="Home tipo Employee Center con navegación, buscador y tarjetas recomendadas" />
+  <figcaption>Employee Center: el empleado <strong>navega</strong> por un portal — menús, buscador, contenido recomendado y sus solicitudes activas. (Recreación ilustrativa.)</figcaption>
+</figure>
+
 **Employee Slate** es la nueva experiencia, disponible desde mayo de 2026 dentro
 de **EmployeeWorks** (la "puerta de entrada con IA" de ServiceNow). Está
 **potenciada de forma nativa por Moveworks** y su premisa es *conversation-first*:
@@ -35,6 +40,11 @@ la página de inicio se organiza alrededor de una barra de chat con IA. El
 empleado escribe en lenguaje natural lo que necesita y la experiencia se encarga
 del resto —responder, tramitar una solicitud, sacar contenido relevante— dentro
 de un mismo flujo conversacional.
+
+<figure>
+  <img src="/images/employee-slate-home.svg" alt="Home tipo Employee Slate con barra de chat de IA y lienzo personalizado" />
+  <figcaption>Employee Slate: el empleado <strong>pregunta</strong> — una barra de chat con IA arriba y un lienzo con To-dos, contenido popular y accesos rápidos. (Recreación ilustrativa.)</figcaption>
+</figure>
 
 ## El cambio de filosofía: navegar vs preguntar
 
