@@ -281,13 +281,12 @@ a {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 1.35rem 1.45rem;
+  overflow: hidden;
   box-shadow: var(--shadow-sm);
   transition: transform 0.18s ease, border-color 0.18s ease,
     box-shadow 0.18s ease;
   display: flex;
   flex-direction: column;
-  gap: 0.55rem;
 }
 
 .post-card:hover {
@@ -296,22 +295,78 @@ a {
   box-shadow: var(--shadow-md);
 }
 
+.post-card-cover {
+  display: block;
+  line-height: 0;
+  background: #0a1e22;
+  border-bottom: 1px solid var(--border);
+}
+
+.post-card-cover img {
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.post-card:hover .post-card-cover img {
+  transform: scale(1.03);
+}
+
+.post-card-body {
+  padding: 1.3rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  flex: 1;
+}
+
 .post-card.featured {
   grid-column: 1 / -1;
-  padding: 1.8rem 1.9rem;
-  background: linear-gradient(
-    135deg,
-    var(--bg-card),
-    color-mix(in srgb, var(--accent) 6%, var(--bg-card))
-  );
+}
+
+.post-card.featured.has-cover {
+  flex-direction: row;
+}
+
+.post-card.featured.has-cover .post-card-cover {
+  flex: 0 0 46%;
+  border-bottom: none;
+  border-right: 1px solid var(--border);
+}
+
+.post-card.featured.has-cover .post-card-cover img {
+  height: 100%;
+  aspect-ratio: auto;
+}
+
+.post-card.featured .post-card-body {
+  padding: 1.9rem 2rem;
+  justify-content: center;
 }
 
 .post-card.featured h2 {
-  font-size: 1.6rem;
+  font-size: 1.7rem;
 }
 
 .post-card.featured .post-card-excerpt {
-  font-size: 1.02rem;
+  font-size: 1.04rem;
+}
+
+@media (max-width: 680px) {
+  .post-card.featured.has-cover {
+    flex-direction: column;
+  }
+
+  .post-card.featured.has-cover .post-card-cover {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .post-card.featured.has-cover .post-card-cover img {
+    aspect-ratio: 2 / 1;
+    height: auto;
+  }
 }
 
 .post-card h2 {
@@ -419,6 +474,49 @@ article.post {
 
 .post-back:hover {
   color: var(--accent);
+}
+
+.post-cover {
+  display: block;
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: #0a1e22;
+  margin-bottom: 1.8rem;
+  box-shadow: var(--shadow-md);
+}
+
+/* Language switch (segmented control) */
+.lang-switch {
+  display: inline-flex;
+  gap: 0.25rem;
+  padding: 0.25rem;
+  margin: 0 0 2.2rem;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+}
+
+.lang-switch-btn {
+  display: inline-block;
+  padding: 0.3rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.lang-switch-btn:hover {
+  color: var(--accent);
+}
+
+.lang-switch-btn.active {
+  background: var(--accent);
+  color: var(--accent-contrast);
 }
 
 article.post > h1 {

@@ -10,6 +10,9 @@ const posts = defineCollection({
     lang: z.enum(['es', 'en']).default('es'),
     tags: z.array(z.string()).default([]),
     draft: z.boolean().default(false),
+    cover: z.string().optional(),
+    // Enlaza las versiones en distintos idiomas de un mismo artículo.
+    translationKey: z.string().optional(),
   }),
 });
 

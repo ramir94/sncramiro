@@ -1,30 +1,40 @@
 ---
-const { post, featured = false } = Astro.props;
+const { post, langs = null, featured = false } = Astro.props;
 const dateFormatter = new Intl.DateTimeFormat('es-ES', {
   year: 'numeric',
   month: 'short',
   day: 'numeric',
 });
-const words = (post.body?.trim().split(/\s+/).length) ?? 0;
+const words = post.body?.trim().split(/\s+/).length ?? 0;
 const readingMin = Math.max(1, Math.round(words / 200));
+const cover = post.data.cover;
 ---
 
-<li class:list={['post-card', { featured }]}>
-  <div class="post-meta">
-    <time datetime={post.data.pubDate.toISOString()}>
-      {dateFormatter.format(post.data.pubDate)}
-    </time>
-    <span class="sep">·</span>
-    <span>{readingMin} min</span>
-    <span class="lang-badge">{post.data.lang}</span>
-  </div>
-  <h2><a href={`/posts/${post.id}/`}>{post.data.title}</a></h2>
-  <p class="post-card-excerpt">{post.data.description}</p>
-  {post.data.tags.length > 0 && (
-    <div class="post-card-tags">
-      {post.data.tags.map((tag) => (
-        <a class="tag-chip" href={`/tags/${tag}/`}>#{tag}</a>
-      ))}
-    </div>
+<li class:list={['post-card', { featured, 'has-cover': cover }]}>
+  {cover && (
+    <a class="post-card-cover" href={`/posts/${post.id}/`} tabindex="-1" aria-hidden="true">
+      <img src={cover} alt="" loading="lazy" width="1200" height="600" />
+    </a>
   )}
+  <div class="post-card-body">
+    <div class="post-meta">
+      <time datetime={post.data.pubDate.toISOString()}>
+        {dateFormatter.format(post.data.pubDate)}
+      </time>
+      <span class="sep">·</span>
+      <span>{readingMin} min</span>
+      {langs
+        ? <span class="lang-badge">{langs.map((l) => l.lang).join(' · ')}</span>
+        : <span class="lang-badge">{post.data.lang}</span>}
+    </div>
+    <h2><a href={`/posts/${post.id}/`}>{post.data.title}</a></h2>
+    <p class="post-card-excerpt">{post.data.description}</p>
+    {post.data.tags.length > 0 && (
+      <div class="post-card-tags">
+        {post.data.tags.map((tag) => (
+          <a class="tag-chip" href={`/tags/${tag}/`}>#{tag}</a>
+        ))}
+      </div>
+    )}
+  </div>
 </li>

@@ -4,6 +4,8 @@ description: 'Employee Slate is ServiceNow''s new AI-powered, conversation-first
 pubDate: 2026-07-12
 lang: 'en'
 tags: ['employee-slate', 'employee-center', 'employee-experience']
+cover: '/covers/employee-slate.svg'
+translationKey: 'employee-center-vs-employee-slate'
 ---
 
 For years, the ServiceNow employee experience has revolved around a portal:
@@ -18,8 +20,6 @@ consumer apps they use every day.
 
 This article compares both approaches: how they differ, what you gain with Slate,
 what you lose or have to rebuild, and how they coexist during the transition.
-
-> ¿Prefieres leerlo en español? [Versión en español aquí](/posts/employee-center-vs-employee-slate/).
 
 ## What each one is
 

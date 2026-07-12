@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import PostCard from '../../components/PostCard.astro';
+import { groupTranslations } from '../../lib/posts.js';
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts', ({ data }) => !data.draft);
@@ -9,23 +10,25 @@ export async function getStaticPaths() {
   return tags.map((tag) => ({
     params: { tag },
     props: {
-      posts: posts
-        .filter((post) => post.data.tags.includes(tag))
-        .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()),
+      items: groupTranslations(
+        posts.filter((post) => post.data.tags.includes(tag)),
+        'es'
+      ),
     },
   }));
 }
 
 const { tag } = Astro.params;
-const { posts } = Astro.props;
+const { items } = Astro.props;
 ---
 
 <Base title={`#${tag}`}>
   <section class="hero">
+    <span class="eyebrow">Tema</span>
     <h1>#{tag}</h1>
-    <p>{posts.length} {posts.length === 1 ? 'artículo' : 'artículos'}</p>
+    <p>{items.length} {items.length === 1 ? 'artículo' : 'artículos'}</p>
   </section>
   <ul class="post-list">
-    {posts.map((post) => <PostCard post={post} />)}
+    {items.map((item) => <PostCard post={item.post} langs={item.langs} />)}
   </ul>
 </Base>

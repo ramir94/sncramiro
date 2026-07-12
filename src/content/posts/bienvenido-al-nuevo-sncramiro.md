@@ -4,6 +4,7 @@ description: 'El blog estrena tecnología: adiós WordPress, hola sitio estátic
 pubDate: 2026-07-12
 lang: 'es'
 tags: ['meta']
+cover: '/covers/welcome.svg'
 ---
 
 Este blog acaba de cambiar de motor. Hasta ahora funcionaba sobre WordPress;

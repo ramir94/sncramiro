@@ -4,6 +4,8 @@ description: 'Employee Slate es la nueva experiencia del empleado de ServiceNow,
 pubDate: 2026-07-12
 lang: 'es'
 tags: ['employee-slate', 'employee-center', 'employee-experience']
+cover: '/covers/employee-slate.svg'
+translationKey: 'employee-center-vs-employee-slate'
 ---
 
 Durante años, la experiencia del empleado en ServiceNow ha girado en torno a un
@@ -18,8 +20,6 @@ como las apps que usa cada día.
 
 Este artículo compara los dos enfoques: en qué se diferencian, qué ganas con
 Slate, qué pierdes o tienes que rehacer, y cómo conviven durante la transición.
-
-> ¿Prefieres leerlo en inglés? [English version here](/posts/employee-center-vs-employee-slate-en/).
 
 ## Qué es cada uno
 

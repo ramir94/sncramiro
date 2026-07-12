@@ -1,16 +1,17 @@
 ---
 import { getCollection, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
+import { translationsOf } from '../../lib/posts.js';
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts', ({ data }) => !data.draft);
   return posts.map((post) => ({
     params: { slug: post.id },
-    props: { post },
+    props: { post, all: posts },
   }));
 }
 
-const { post } = Astro.props;
+const { post, all } = Astro.props;
 const { Content } = await render(post);
 const dateFormatter = new Intl.DateTimeFormat('es-ES', {
   year: 'numeric',
@@ -19,11 +20,18 @@ const dateFormatter = new Intl.DateTimeFormat('es-ES', {
 });
 const words = post.body?.trim().split(/\s+/).length ?? 0;
 const readingMin = Math.max(1, Math.round(words / 200));
+const langLabel = { es: 'Español', en: 'English' };
+const translations = translationsOf(post, all);
 ---
 
 <Base title={post.data.title} description={post.data.description}>
   <article class="post">
     <a class="post-back" href="/">← Todos los artículos</a>
+
+    {post.data.cover && (
+      <img class="post-cover" src={post.data.cover} alt="" width="1200" height="600" />
+    )}
+
     <h1>{post.data.title}</h1>
     <div class="post-meta">
       <time datetime={post.data.pubDate.toISOString()}>
@@ -31,11 +39,25 @@ const readingMin = Math.max(1, Math.round(words / 200));
       </time>
       <span class="sep">·</span>
       <span>{readingMin} min de lectura</span>
-      <span class="lang-badge">{post.data.lang}</span>
       {post.data.tags.map((tag) => (
         <a class="tag-chip" href={`/tags/${tag}/`}>#{tag}</a>
       ))}
     </div>
+
+    {translations.length > 1 && (
+      <div class="lang-switch" role="group" aria-label="Idioma del artículo">
+        {translations.map((t) => (
+          <a
+            class:list={['lang-switch-btn', { active: t.id === post.id }]}
+            href={`/posts/${t.id}/`}
+            aria-current={t.id === post.id ? 'true' : undefined}
+          >
+            {langLabel[t.data.lang] ?? t.data.lang}
+          </a>
+        ))}
+      </div>
+    )}
+
     <div class="prose">
       <Content />
     </div>

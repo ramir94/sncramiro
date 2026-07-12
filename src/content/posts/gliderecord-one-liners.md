@@ -4,6 +4,7 @@ description: 'Small GlideRecord patterns that save time in background scripts an
 pubDate: 2026-07-12
 lang: 'en'
 tags: ['scripting', 'gliderecord']
+cover: '/covers/gliderecord.svg'
 ---
 
 A few small `GlideRecord` patterns I keep reaching for in background scripts.
