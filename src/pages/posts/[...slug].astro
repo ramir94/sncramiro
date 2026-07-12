@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
+import AuthorCard from '../../components/AuthorCard.astro';
 import { translationsOf } from '../../lib/posts.js';
 
 export async function getStaticPaths() {
@@ -12,7 +13,8 @@ export async function getStaticPaths() {
 }
 
 const { post, all } = Astro.props;
-const { Content } = await render(post);
+const { Content, headings } = await render(post);
+const toc = headings.filter((h) => h.depth === 2);
 const dateFormatter = new Intl.DateTimeFormat('es-ES', {
   year: 'numeric',
   month: 'long',
@@ -22,44 +24,119 @@ const words = post.body?.trim().split(/\s+/).length ?? 0;
 const readingMin = Math.max(1, Math.round(words / 200));
 const langLabel = { es: 'Español', en: 'English' };
 const translations = translationsOf(post, all);
+const ogImage = new URL(`/og/${post.id}.png`, Astro.site).href;
 ---
 
-<Base title={post.data.title} description={post.data.description}>
-  <article class="post">
-    <a class="post-back" href="/">← Todos los artículos</a>
+<Base
+  title={post.data.title}
+  description={post.data.description}
+  ogImage={ogImage}
+  ogType="article"
+>
+  <div id="read-progress" aria-hidden="true"></div>
 
-    {post.data.cover && (
-      <img class="post-cover" src={post.data.cover} alt="" width="1200" height="600" />
-    )}
+  <div class="post-shell">
+    <article class="post">
+      <a class="post-back" href="/">← Todos los artículos</a>
 
-    <h1>{post.data.title}</h1>
-    <div class="post-meta">
-      <time datetime={post.data.pubDate.toISOString()}>
-        {dateFormatter.format(post.data.pubDate)}
-      </time>
-      <span class="sep">·</span>
-      <span>{readingMin} min de lectura</span>
-      {post.data.tags.map((tag) => (
-        <a class="tag-chip" href={`/tags/${tag}/`}>#{tag}</a>
-      ))}
-    </div>
+      {post.data.cover && (
+        <img class="post-cover" src={post.data.cover} alt="" width="1200" height="600" />
+      )}
 
-    {translations.length > 1 && (
-      <div class="lang-switch" role="group" aria-label="Idioma del artículo">
-        {translations.map((t) => (
-          <a
-            class:list={['lang-switch-btn', { active: t.id === post.id }]}
-            href={`/posts/${t.id}/`}
-            aria-current={t.id === post.id ? 'true' : undefined}
-          >
-            {langLabel[t.data.lang] ?? t.data.lang}
-          </a>
+      <h1>{post.data.title}</h1>
+      <div class="post-meta">
+        <time datetime={post.data.pubDate.toISOString()}>
+          {dateFormatter.format(post.data.pubDate)}
+        </time>
+        <span class="sep">·</span>
+        <span>{readingMin} min de lectura</span>
+        {post.data.tags.map((tag) => (
+          <a class="tag-chip" href={`/tags/${tag}/`}>#{tag}</a>
         ))}
       </div>
-    )}
 
-    <div class="prose">
-      <Content />
-    </div>
-  </article>
+      {translations.length > 1 && (
+        <div class="lang-switch" role="group" aria-label="Idioma del artículo">
+          {translations.map((t) => (
+            <a
+              class:list={['lang-switch-btn', { active: t.id === post.id }]}
+              href={`/posts/${t.id}/`}
+              aria-current={t.id === post.id ? 'true' : undefined}
+            >
+              {langLabel[t.data.lang] ?? t.data.lang}
+            </a>
+          ))}
+        </div>
+      )}
+
+      {toc.length > 2 && (
+        <details class="toc-mobile">
+          <summary>Contenido</summary>
+          <ol>
+            {toc.map((h) => (
+              <li><a href={`#${h.slug}`}>{h.text}</a></li>
+            ))}
+          </ol>
+        </details>
+      )}
+
+      <div class="prose">
+        <Content />
+      </div>
+
+      <AuthorCard compact />
+    </article>
+
+    {toc.length > 2 && (
+      <aside class="post-toc" aria-label="Índice del artículo">
+        <p class="post-toc-title">En esta página</p>
+        <nav>
+          <ol>
+            {toc.map((h) => (
+              <li><a href={`#${h.slug}`} data-slug={h.slug}>{h.text}</a></li>
+            ))}
+          </ol>
+        </nav>
+      </aside>
+    )}
+  </div>
 </Base>
+
+<script is:inline>
+  (function () {
+    // Barra de progreso de lectura
+    var bar = document.getElementById('read-progress');
+    var article = document.querySelector('article.post');
+    function onScroll() {
+      if (!bar || !article) return;
+      var start = article.offsetTop;
+      var total = article.offsetHeight - window.innerHeight;
+      var scrolled = window.scrollY - start;
+      var pct = Math.max(0, Math.min(1, scrolled / Math.max(1, total)));
+      bar.style.transform = 'scaleX(' + pct + ')';
+    }
+    document.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    onScroll();
+
+    // Resaltar la sección activa en el índice
+    var links = document.querySelectorAll('.post-toc a[data-slug]');
+    if (links.length) {
+      var map = {};
+      links.forEach(function (a) { map[a.dataset.slug] = a; });
+      var obs = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) {
+              links.forEach(function (a) { a.classList.remove('active'); });
+              var a = map[e.target.id];
+              if (a) a.classList.add('active');
+            }
+          });
+        },
+        { rootMargin: '-10% 0px -75% 0px' }
+      );
+      document.querySelectorAll('.prose h2[id]').forEach(function (h) { obs.observe(h); });
+    }
+  })();
+</script>

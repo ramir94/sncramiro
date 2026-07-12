@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 460" width="1000" height="460" role="img" aria-label="Now Assist asiste a la persona; un AI Agent actúa de forma autónoma">
+  <defs>
+    <linearGradient id="avBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0c2226"/>
+      <stop offset="1" stop-color="#08181b"/>
+    </linearGradient>
+    <linearGradient id="avGreen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7ef06a"/>
+      <stop offset="1" stop-color="#3fae2f"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="460" fill="url(#avBg)"/>
+
+  <!-- divider -->
+  <line x1="500" y1="60" x2="500" y2="400" stroke="#1e3f3f" stroke-width="1.5" stroke-dasharray="4 6"/>
+
+  <!-- LEFT: Now Assist (assist) -->
+  <text x="60" y="60" fill="#8fe07f" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="3">NOW ASSIST · ASISTE</text>
+
+  <g transform="translate(70 110)">
+    <circle cx="30" cy="30" r="26" fill="#12363b" stroke="#2f7a4a" stroke-width="2"/>
+    <circle cx="30" cy="22" r="9" fill="#9ccdb6"/>
+    <path d="M14 44 a16 14 0 0 1 32 0" fill="#9ccdb6"/>
+    <text x="76" y="28" fill="#e8f2ee" font-family="Inter, Arial" font-size="15" font-weight="600">Persona</text>
+    <text x="76" y="48" fill="#7f9c97" font-family="Inter, Arial" font-size="13">decide y ejecuta</text>
+  </g>
+
+  <g transform="translate(70 220)">
+    <rect x="0" y="0" width="360" height="150" rx="14" fill="#0e2c30" stroke="#255055"/>
+    <circle cx="34" cy="34" r="16" fill="url(#avGreen)"/>
+    <path d="M28 34 h12 M34 28 v12" stroke="#08281a" stroke-width="2.4"/>
+    <text x="62" y="30" fill="#e8f2ee" font-family="Inter, Arial" font-size="14" font-weight="600">Now Assist sugiere</text>
+    <text x="62" y="50" fill="#7f9c97" font-family="Inter, Arial" font-size="12.5">resúmenes, borradores, código</text>
+    <rect x="20" y="76" width="320" height="12" rx="6" fill="#1c4a44"/>
+    <rect x="20" y="98" width="250" height="12" rx="6" fill="#1c4a44"/>
+    <rect x="20" y="120" width="180" height="12" rx="6" fill="#1c4a44"/>
+  </g>
+  <text x="70" y="405" fill="#6f918a" font-family="Inter, Arial" font-size="12.5">La IA propone; la persona aprueba.</text>
+
+  <!-- RIGHT: AI Agent (act) -->
+  <text x="540" y="60" fill="#8fe07f" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="3">AI AGENT · ACTÚA</text>
+
+  <!-- autonomous loop -->
+  <g transform="translate(700 210)">
+    <circle r="90" fill="none" stroke="#255055" stroke-width="2" stroke-dasharray="6 8"/>
+    <circle cx="0" cy="-90" r="30" fill="#12363b" stroke="#2f7a4a" stroke-width="2"/>
+    <text x="0" y="-86" text-anchor="middle" fill="#9ccdb6" font-family="Inter, Arial" font-size="12">percibe</text>
+    <circle cx="78" cy="45" r="30" fill="#12363b" stroke="#2f7a4a" stroke-width="2"/>
+    <text x="78" y="49" text-anchor="middle" fill="#9ccdb6" font-family="Inter, Arial" font-size="12">decide</text>
+    <circle cx="-78" cy="45" r="30" fill="#12363b" stroke="#2f7a4a" stroke-width="2"/>
+    <text x="-78" y="49" text-anchor="middle" fill="#9ccdb6" font-family="Inter, Arial" font-size="12">actúa</text>
+    <circle r="34" fill="url(#avGreen)"/>
+    <text x="0" y="5" text-anchor="middle" fill="#08281a" font-family="Inter, Arial" font-size="13" font-weight="700">Agent</text>
+    <path d="M30 -72 a95 95 0 0 1 55 84" fill="none" stroke="#3fae2f" stroke-width="3" marker-end="url(#av-arrow)"/>
+  </g>
+  <text x="540" y="405" fill="#6f918a" font-family="Inter, Arial" font-size="12.5">Diagnostica, planifica y ejecuta el flujo completo.</text>
+
+  <defs>
+    <marker id="av-arrow" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+      <path d="M0 0 L6 3 L0 6 Z" fill="#3fae2f"/>
+    </marker>
+  </defs>
+</svg>

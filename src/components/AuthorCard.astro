@@ -1,0 +1,37 @@
+---
+import {
+  AUTHOR,
+  AUTHOR_BIO,
+  AUTHOR_AVATAR,
+  AUTHOR_LINKEDIN,
+  AUTHOR_GITHUB,
+} from '../consts.js';
+
+const { compact = false } = Astro.props;
+const initials = AUTHOR.split(/\s+/)
+  .map((w) => w[0])
+  .slice(0, 2)
+  .join('')
+  .toUpperCase();
+---
+
+<aside class:list={['author-card', { compact }]}>
+  {AUTHOR_AVATAR ? (
+    <img class="author-avatar" src={AUTHOR_AVATAR} alt={AUTHOR} width="72" height="72" />
+  ) : (
+    <span class="author-avatar author-avatar--initials" aria-hidden="true">{initials}</span>
+  )}
+  <div class="author-info">
+    <p class="author-name">{AUTHOR}</p>
+    <p class="author-bio">{AUTHOR_BIO}</p>
+    <div class="author-links">
+      {AUTHOR_LINKEDIN && (
+        <a href={AUTHOR_LINKEDIN} target="_blank" rel="me noopener">LinkedIn</a>
+      )}
+      {AUTHOR_GITHUB && (
+        <a href={AUTHOR_GITHUB} target="_blank" rel="me noopener">GitHub</a>
+      )}
+      <a href="/rss.xml">RSS</a>
+    </div>
+  </div>
+</aside>

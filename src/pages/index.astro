@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import PostCard from '../components/PostCard.astro';
+import AuthorCard from '../components/AuthorCard.astro';
 import { groupTranslations } from '../lib/posts.js';
 
 const all = await getCollection('posts', ({ data }) => !data.draft);
@@ -28,4 +29,9 @@ const items = groupTranslations(all, 'es');
       <PostCard post={item.post} langs={item.langs} featured={i === 0} />
     ))}
   </ul>
+
+  <div class="section-head">
+    <h2>Sobre el autor</h2>
+  </div>
+  <AuthorCard />
 </Base>
