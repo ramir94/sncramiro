@@ -29,8 +29,8 @@ knowledge base and a personalization layer. It's mature, highly configurable, an
 backs thousands of production implementations.
 
 <figure>
-  <img src="/images/employee-center-home.svg" alt="Employee Center-style home with navigation, search and recommended cards" />
-  <figcaption>Employee Center: the employee <strong>browses</strong> a portal — menus, search, recommended content and their active requests. (Illustrative recreation.)</figcaption>
+  <img src="/images/delightworks.jpg" alt="Employee Center home with navigation, search and recommended cards" loading="lazy" />
+  <figcaption>Employee Center: the employee <strong>browses</strong> a portal — menus, search, recommended content and their active requests. (Screenshot: ServiceNow.)</figcaption>
 </figure>
 
 **Employee Slate** is the new experience, available since May 2026 inside
@@ -41,8 +41,8 @@ experience takes it from there —answering, submitting a request, surfacing
 relevant content— all within a single conversational flow.
 
 <figure>
-  <img src="/images/employee-slate-home.svg" alt="Employee Slate-style home with an AI chat bar and personalized canvas" />
-  <figcaption>Employee Slate: the employee <strong>asks</strong> — an AI chat bar up top and a canvas with to-dos, popular content and quick links. (Illustrative recreation.)</figcaption>
+  <img src="/images/image.jpg" alt="Employee Slate home with an AI chat bar and personalized canvas" loading="lazy" />
+  <figcaption>Employee Slate: the employee <strong>asks</strong> — an AI chat bar up top and a canvas with to-dos, popular content and quick links. (Screenshot: ServiceNow.)</figcaption>
 </figure>
 
 ## The philosophy shift: browse vs ask

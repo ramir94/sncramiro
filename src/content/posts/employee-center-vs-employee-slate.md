@@ -29,8 +29,8 @@ unificada, catálogo, base de conocimiento y una capa de personalización. Es
 maduro, muy configurable y sobre él hay miles de implementaciones en producción.
 
 <figure>
-  <img src="/images/employee-center-home.svg" alt="Home tipo Employee Center con navegación, buscador y tarjetas recomendadas" />
-  <figcaption>Employee Center: el empleado <strong>navega</strong> por un portal — menús, buscador, contenido recomendado y sus solicitudes activas. (Recreación ilustrativa.)</figcaption>
+  <img src="/images/delightworks.jpg" alt="Home de Employee Center con navegación, buscador y tarjetas recomendadas" loading="lazy" />
+  <figcaption>Employee Center: el empleado <strong>navega</strong> por un portal — menús, buscador, contenido recomendado y sus solicitudes activas. (Captura: ServiceNow.)</figcaption>
 </figure>
 
 **Employee Slate** es la nueva experiencia, disponible desde mayo de 2026 dentro
@@ -42,8 +42,8 @@ del resto —responder, tramitar una solicitud, sacar contenido relevante— den
 de un mismo flujo conversacional.
 
 <figure>
-  <img src="/images/employee-slate-home.svg" alt="Home tipo Employee Slate con barra de chat de IA y lienzo personalizado" />
-  <figcaption>Employee Slate: el empleado <strong>pregunta</strong> — una barra de chat con IA arriba y un lienzo con To-dos, contenido popular y accesos rápidos. (Recreación ilustrativa.)</figcaption>
+  <img src="/images/image.jpg" alt="Home de Employee Slate con barra de chat de IA y lienzo personalizado" loading="lazy" />
+  <figcaption>Employee Slate: el empleado <strong>pregunta</strong> — una barra de chat con IA arriba y un lienzo con To-dos, contenido popular y accesos rápidos. (Captura: ServiceNow.)</figcaption>
 </figure>
 
 ## El cambio de filosofía: navegar vs preguntar
