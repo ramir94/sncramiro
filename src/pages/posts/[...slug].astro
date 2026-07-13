@@ -3,6 +3,7 @@ import { getCollection, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import AuthorCard from '../../components/AuthorCard.astro';
 import { translationsOf } from '../../lib/posts.js';
+import { tagHue } from '../../lib/tags.js';
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts', ({ data }) => !data.draft);
@@ -51,7 +52,7 @@ const ogImage = new URL(`/og/${post.id}.png`, Astro.site).href;
         <span class="sep">·</span>
         <span>{readingMin} min de lectura</span>
         {post.data.tags.map((tag) => (
-          <a class="tag-chip" href={`/tags/${tag}/`}>#{tag}</a>
+          <a class="tag-chip" href={`/tags/${tag}/`} style={`--chip-h:${tagHue(tag)}`}>#{tag}</a>
         ))}
       </div>
 

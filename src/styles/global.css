@@ -180,14 +180,15 @@ a {
 .hero::before {
   content: '';
   position: absolute;
-  inset: -40% -10% auto -10%;
-  height: 320px;
+  inset: -50% -15% auto -15%;
+  height: 380px;
   background: radial-gradient(
-      60% 120% at 20% 0%,
+      55% 120% at 18% 0%,
       var(--hero-glow-1),
-      transparent 70%
+      transparent 68%
     ),
-    radial-gradient(50% 120% at 90% 10%, var(--hero-glow-2), transparent 70%);
+    radial-gradient(45% 120% at 88% 8%, rgba(53, 200, 255, 0.1), transparent 70%),
+    radial-gradient(40% 120% at 60% 20%, var(--hero-glow-2), transparent 70%);
   pointer-events: none;
   z-index: -1;
 }
@@ -225,7 +226,17 @@ a {
 }
 
 .hero h1 .accent {
-  color: var(--accent);
+  background: linear-gradient(96deg, #12b866 0%, #62d84e 48%, #a6e75a 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+:root[data-theme='dark'] .hero h1 .accent {
+  background: linear-gradient(96deg, #35d07f 0%, #62d84e 45%, #b6f06a 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .hero p {
@@ -253,6 +264,17 @@ a {
   color: var(--text-subtle);
   margin: 0;
   font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.section-head h2::before {
+  content: '';
+  width: 22px;
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--accent), #a6e75a);
 }
 
 .section-head a {
@@ -290,9 +312,10 @@ a {
 }
 
 .post-card:hover {
-  transform: translateY(-3px);
-  border-color: var(--border-strong);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--border-strong));
+  box-shadow: var(--shadow-md),
+    0 10px 30px -18px color-mix(in srgb, var(--accent) 60%, transparent);
 }
 
 .post-card-cover {
@@ -323,19 +346,54 @@ a {
 
 .post-card.featured {
   grid-column: 1 / -1;
+  background: linear-gradient(
+    135deg,
+    var(--bg-card),
+    color-mix(in srgb, var(--accent) 7%, var(--bg-card))
+  );
 }
 
 .post-card.featured .post-card-body {
-  padding: 1.7rem 1.9rem;
+  padding: 1.8rem 2rem;
 }
 
 .post-card.featured h2 {
-  font-size: 1.6rem;
+  font-size: 1.55rem;
 }
 
 .post-card.featured .post-card-excerpt {
-  font-size: 1.03rem;
-  max-width: 60ch;
+  font-size: 1.02rem;
+  max-width: 56ch;
+}
+
+/* Destacado en horizontal (imagen + texto) para que no ocupe tanto */
+@media (min-width: 720px) {
+  .post-card.featured.has-cover {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .post-card.featured.has-cover .post-card-cover {
+    flex: 0 0 40%;
+    max-width: 40%;
+    border-bottom: none;
+    border-right: 1px solid var(--border);
+    display: flex;
+  }
+
+  .post-card.featured.has-cover .post-card-cover img {
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    aspect-ratio: auto;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .post-card.featured .post-card-body {
+    flex: 1;
+    justify-content: center;
+  }
 }
 
 .post-card h2 {
@@ -405,22 +463,30 @@ a {
 }
 
 .tag-chip {
+  --chip-h: 145;
   display: inline-block;
-  background: transparent;
-  color: var(--text-muted);
-  border: 1px solid var(--border-strong);
+  color: hsl(var(--chip-h) 48% 36%);
+  background: hsl(var(--chip-h) 65% 50% / 0.1);
+  border: 1px solid hsl(var(--chip-h) 50% 55% / 0.35);
   border-radius: 999px;
-  padding: 0.1rem 0.65rem;
+  padding: 0.12rem 0.7rem;
   font-size: 0.76rem;
-  font-weight: 500;
+  font-weight: 600;
   text-decoration: none;
-  transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+  transition: background 0.15s ease, border-color 0.15s ease,
+    transform 0.15s ease;
 }
 
 .tag-chip:hover {
-  color: var(--accent);
-  border-color: var(--accent);
-  background: var(--badge-bg);
+  background: hsl(var(--chip-h) 65% 50% / 0.2);
+  border-color: hsl(var(--chip-h) 55% 50% / 0.6);
+  transform: translateY(-1px);
+}
+
+:root[data-theme='dark'] .tag-chip {
+  color: hsl(var(--chip-h) 78% 74%);
+  background: hsl(var(--chip-h) 60% 55% / 0.16);
+  border-color: hsl(var(--chip-h) 50% 55% / 0.32);
 }
 
 /* ---------- Article ---------- */
@@ -448,13 +514,20 @@ article.post {
 .post-cover {
   display: block;
   width: 100%;
-  aspect-ratio: 2 / 1;
+  height: 280px;
   object-fit: cover;
+  object-position: center;
   border-radius: var(--radius-lg);
   border: 1px solid var(--border);
   background: #0a1e22;
   margin-bottom: 1.8rem;
   box-shadow: var(--shadow-md);
+}
+
+@media (max-width: 680px) {
+  .post-cover {
+    height: 190px;
+  }
 }
 
 /* Language switch (segmented control) */

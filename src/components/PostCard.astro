@@ -1,4 +1,5 @@
 ---
+import { tagHue } from '../lib/tags.js';
 const { post, langs = null, featured = false } = Astro.props;
 const dateFormatter = new Intl.DateTimeFormat('es-ES', {
   year: 'numeric',
@@ -32,7 +33,7 @@ const cover = post.data.cover;
     {post.data.tags.length > 0 && (
       <div class="post-card-tags">
         {post.data.tags.map((tag) => (
-          <a class="tag-chip" href={`/tags/${tag}/`}>#{tag}</a>
+          <a class="tag-chip" href={`/tags/${tag}/`} style={`--chip-h:${tagHue(tag)}`}>#{tag}</a>
         ))}
       </div>
     )}
