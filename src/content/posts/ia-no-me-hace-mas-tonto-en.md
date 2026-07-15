@@ -1,6 +1,6 @@
 ---
 title: 'AI isn''t making me dumber (it''s making me discover more)'
-description: 'The pessimist take says AI will do our work and, over time, make us dumber. In my experience as a developer it''s the opposite: used as a sparring partner, it makes me learn and discover capabilities I''d have spent hours finding.'
+description: 'The pessimist take says AI will do our work and, over time, make us dumber. It has more of a point than it seems. But used with method —not willpower— the opposite happens: it makes me learn and discover what I didn''t know existed.'
 pubDate: 2026-07-13
 lang: 'en'
 tags: ['ia', 'desarrollo', 'aprendizaje']
@@ -12,88 +12,109 @@ There's a pessimist take you hear a lot: AI is going to do our work and, little 
 little, make us **dumber**. If the model writes the code, reasons about the
 design and remembers the API for us, why would we learn anything at all?
 
-I get it, and it has a point. But after a few months using AI daily in
-development, my experience is the exact opposite: **it's making me learn more, not
-less.** I want to explain why, without the hype.
+After a few months using AI daily in development, my experience is the opposite:
+**it makes me learn more, not less.** But I don't want to sell you hype, so let me
+start by giving the pessimist their strongest version —stronger than usually
+admitted— and then explain why, even so, I think they're wrong.
 
-## The pessimist take, and its grain of truth
+## The pessimist take, in its strong form
 
-Let me give it its due. If you use AI to **avoid thinking** —copy the answer,
-paste it, move on— then yes, you atrophy. Just as GPS can mean you never learn to
-navigate, a model can mean you never understand *why* your code works. The risk is
-real, and it hinges on one thing: **your attitude**.
+Let's be fair. The pessimist isn't talking about you on your best day; they're
+talking about the **average case** and the **long run**, and there they have ammo:
 
-The right question isn't "does AI make us dumber?" but "how are *you* using it?".
+- **Juniors.** Someone who has never fought a problem by hand can learn to *ask
+  for the solution* without ever learning to *solve it*. The skill never forms.
+- **The long run.** Just as GPS can leave you with no sense of direction,
+  delegating daily can leave you without the reflexes you thought you had. The
+  damage doesn't show in a month; it shows over years.
+- **Willpower doesn't scale.** "I'll verify later, I'll understand later" sounds
+  great until the deadline hits. Under pressure, we all take the easy path: copy,
+  paste, move on. And that's exactly the mechanism the take describes.
+
+If your answer to the pessimist is "just use it well," you're conceding the point:
+for most people, "using it well" isn't the default.
 
 ## What's happening to me
 
-In my case, AI hasn't replaced my judgment: it has **accelerated** it. I use it
-less as an oracle that spits out solutions and more as **another developer sitting
-next to me** —one who has read the entire documentation, remembers the specific
-API, and answers in a second what would take me half an hour to look up.
+All that said: in my case AI hasn't replaced my judgment, it has **accelerated**
+it. I use it less as an oracle that spits out solutions and more as **another
+developer sitting next to me** —one who has read the entire documentation,
+remembers the specific API, and answers in a second what would take me half an
+hour to look up.
 
-And that's the key: when you have someone like that beside you, you don't stop
-thinking. **You think better and faster.**
+With someone like that beside you, you don't stop thinking. **You think better and
+faster.** The question is why it adds up for me and subtracts for the pessimist.
+The answer isn't that I have more willpower. It's **method**.
 
-## Why it teaches: it shortens the distance to what you didn't know existed
+## Its best card: discovering what you didn't know existed
 
-The biggest change isn't that it solves what I already know how to do. It's that
+The biggest change isn't that AI solves what I already know how to do. It's that
 it **shows me what I didn't even know existed**.
 
 Large, mature platforms are full of under-advertised capabilities, modules that
 don't show up in the first tutorial, out-of-the-box ways to do something you'd
-been hand-rolling. Discovering that used to be down to luck: a colleague who
-mentioned it, a buried forum thread, hours of Google. Often you never got there,
-because **you can't search for what you don't know exists**.
+been hand-rolling. Finding that used to be down to luck: a colleague who mentioned
+it, a buried forum thread, hours of Google. Often you never got there, because
+**you can't search for what you don't know exists**.
 
 AI collapses that distance. I describe the problem in plain language and it tells
 me "the platform already has X for this". From there I go to the official docs,
-verify it and understand it. It didn't hand me a blind answer: it handed me **the
-name of the door** I didn't even know was there.
+verify it and understand it. It doesn't hand me a blind answer: it hands me **the
+name of the door** I didn't even know was there. And this —unlike almost
+everything else— isn't "faster Google": it's access to something I might **never**
+have found.
 
-## More robust designs: validating against a second opinion
+## What you can delegate and what you can't
 
-The other thing that changed is how solid what I build is. Before, I made a lot of
-design decisions alone, with my biases and my habits. Now I can **validate an idea
-instantly**: "I'm going to do it this way, what breaks?", "is there a cleaner
-way?", "which edge case am I missing?".
+This is the key to the long-run argument. Not all knowledge is equal:
 
-That healthy friction —having to defend or revise an idea against a partner— is
-exactly what makes you a better engineer. Not because the AI is always right (it
-isn't), but because it **forces me to articulate the why** behind my decisions and
-to pressure-test them before writing the first line.
+- **Lookup knowledge** —exact syntax, a method name, which table a field lives
+  in—: delegate it without guilt. Every abstraction layer in history "deskilled"
+  the one below, and nobody mourns not writing assembly.
+- **Judgment** —why a design holds, which edge case breaks it, what fits your
+  architecture—: **never** delegate.
 
-## The tool is a mirror
+The right question isn't "does something atrophy?" (something always does), but
+"does the thing that matters atrophy?". Used well, AI takes the *lookup* and frees
+you for judgment. Used badly, you hand over the judgment too —and there the
+pessimist is dead right.
 
-I think this is the nuance the debate misses: **AI amplifies what you bring to
-it.**
+## It's not willpower, it's method
 
-- Arrive passive —"do this for me"— and it amplifies your laziness and, yes, you
-  atrophy.
-- Arrive curious —"why?", "what if…?", "teach me the part I don't get"— and it
-  amplifies your learning.
+The pessimist's strongest point is that discipline fails under pressure. They're
+right, so the solution can't rely on virtue: it has to live in **how you use the
+tool**, so that understanding is the *byproduct*, not extra effort. Three habits
+that make it automatic for me:
 
-The deciding variable isn't the model. **It's you.** The same tool makes the lazy
-lazier and the curious faster.
+- **Predict, then verify.** Before asking, I guess the answer. If I'm right, it
+  reinforces; if I'm wrong, I learn exactly what I didn't know. Asking cold
+  doesn't teach; checking your prediction does.
+- **Ask it to explain and cite, not just produce.** "Give me the solution and
+  why, with the doc link." The reasoning comes built in and verifying is one
+  click.
+- **Use AI to attack my design.** "I'm going to do it this way, what breaks?" I
+  treat every output as a **hypothesis to falsify**, not an answer to accept. I
+  even ask it to argue against me. That defuses the biggest risk —believing a
+  confident, wrong AI— and forces me to defend the why before writing the first
+  line.
 
-## The skill that matters now
-
-If AI lowers the cost of *getting* an answer, the value shifts elsewhere: **asking
-good questions, verifying, and knowing how to integrate** what comes back. That's
-not less judgment; it's more. I still need to understand the system to judge
-whether the suggestion is good, to catch when it's wrong, and to decide what fits
-my architecture.
-
-AI doesn't excuse me from understanding. **It makes understanding cheaper** —if I
-stay inside the loop instead of delegating and switching off.
+None of the three is willpower. They're a way of asking. And that way **can be
+taught** —to a junior too. That's where "it depends how you use it" stops being an
+excuse and becomes a plan.
 
 ## So
 
-No, I don't think AI makes us dumber. I think it makes the lazy lazier and the
-curious faster. In my case, these months have made me discover parts of the
-platform I hadn't seen in years, design with sharper judgment, and learn at a pace
-I wouldn't have reached alone.
+I don't think the pessimist take is false; I think it's **incomplete**. It's right
+about the average case and the long run *if* the interaction is designed to
+produce rather than to teach. But that's not a law of nature: it's a choice of
+method.
 
-It's a tool. Like all of them, it doesn't make you better or worse on its own:
-**it depends on how you use it.** And that, in the end, has always been the
-interesting part.
+So I'm not defending a universal "AI doesn't make us dumber." I'm defending
+something narrower and, I think, more honest:
+
+> **AI doesn't make you dumber if the interaction is designed to teach —and that
+> design is the whole ballgame.**
+
+In my case, these months have made me discover parts of the platform I hadn't seen
+in years, design with sharper judgment, and learn at a pace I wouldn't have
+reached alone. Not from more willpower. From asking better.
