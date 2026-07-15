@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" role="img" aria-label="La IA como interlocutor que enseña: diálogo y aprendizaje">
+  <defs>
+    <linearGradient id="iaBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0c2226"/>
+      <stop offset="1" stop-color="#08181b"/>
+    </linearGradient>
+    <linearGradient id="iaGreen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7ef06a"/>
+      <stop offset="1" stop-color="#3fae2f"/>
+    </linearGradient>
+    <filter id="iaSoft" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+    <marker id="iaArrow" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+      <path d="M0 0 L6 3 L0 6 Z" fill="#7ef06a"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="600" fill="url(#iaBg)"/>
+  <circle cx="600" cy="250" r="240" fill="#62d84e" opacity="0.08" filter="url(#iaSoft)"/>
+
+  <!-- left: developer bubble -->
+  <g transform="translate(150 170)">
+    <rect x="0" y="0" width="320" height="130" rx="22" fill="#12363b" stroke="#2b5b57" stroke-width="2"/>
+    <path d="M40 130 l0 34 l34 -34 z" fill="#12363b" stroke="#2b5b57" stroke-width="2"/>
+    <text x="30" y="52" fill="#9ccdb6" font-family="'JetBrains Mono', monospace" font-size="20">¿y si uso…?</text>
+    <rect x="30" y="74" width="180" height="12" rx="6" fill="#295a54"/>
+    <rect x="30" y="96" width="240" height="12" rx="6" fill="#295a54"/>
+  </g>
+
+  <!-- right: AI bubble -->
+  <g transform="translate(730 250)">
+    <rect x="0" y="0" width="330" height="150" rx="22" fill="#173f36" stroke="#2f7a4a" stroke-width="2"/>
+    <path d="M290 150 l0 34 l-34 -34 z" fill="#173f36" stroke="#2f7a4a" stroke-width="2"/>
+    <circle cx="34" cy="36" r="14" fill="url(#iaGreen)"/>
+    <path d="M28 36 h12 M34 30 v12" stroke="#08281a" stroke-width="2.4"/>
+    <text x="58" y="42" fill="#b6f0a6" font-family="'JetBrains Mono', monospace" font-size="18">existe ese módulo</text>
+    <rect x="24" y="66" width="270" height="12" rx="6" fill="#1f5a3f"/>
+    <rect x="24" y="88" width="210" height="12" rx="6" fill="#1f5a3f"/>
+    <rect x="24" y="110" width="150" height="12" rx="6" fill="#3f8a54"/>
+  </g>
+
+  <!-- exchange arrows -->
+  <path d="M470 250 q80 20 250 40" fill="none" stroke="#7ef06a" stroke-width="3" opacity="0.7" marker-end="url(#iaArrow)"/>
+
+  <!-- learning growth curve -->
+  <g transform="translate(150 470)">
+    <line x1="0" y1="60" x2="920" y2="60" stroke="#204a48" stroke-width="2"/>
+    <path d="M0 55 C 220 52, 420 40, 600 18 S 860 -34, 920 -46" fill="none" stroke="url(#iaGreen)" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="920" cy="-46" r="7" fill="#7ef06a"/>
+    <text x="0" y="88" fill="#6f918a" font-family="Inter, Arial" font-size="15">lo que sé</text>
+    <text x="820" y="88" fill="#8fe07f" font-family="Inter, Arial" font-size="15">con el tiempo →</text>
+  </g>
+</svg>
